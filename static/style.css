@@ -1,0 +1,5 @@
+body { font-family: Arial; background: #f1f1f1; }
+.chatbox { width: 400px; margin: 50px auto; background: white; padding: 10px; border-radius: 10px; }
+#chatlogs { height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 5px; }
+.userText { text-align: right; color: blue; margin: 5px; }
+.botText { text-align: left; color: green; margin: 5px; }
