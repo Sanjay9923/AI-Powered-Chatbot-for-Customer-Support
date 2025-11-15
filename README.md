@@ -1,23 +1,29 @@
 # AI-Powered Chatbot for Customer Support
+
 ## Overview
 
 This project is an AI-powered chatbot designed to help customers get quick answers to common questions. It uses natural language processing techniques to understand user queries and provide accurate, context-aware responses.
 The system includes a simple web interface where users can ask questions, and the chatbot replies instantly based on the knowledge stored in the question files.
 
 
-## Key Features
+## Screenshot
 
-&bull; Real-time customer support chatbot
+<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/98d6f255-de8c-4750-9e72-5c95930db671" />
 
-&bull; Understands user queries using simple NLP logic
 
-&bull; Clean and responsive web interface
+## Features
 
-&bull; Easy to expand by adding new question–answer pairs
+- Real-time customer support chatbot
 
-&bull; MySQL database support for storing chat data
+- Understands user queries using simple NLP logic
 
-&bull; Lightweight and easy to set up
+- Clean and responsive web interface
+
+- Easy to expand by adding new question–answer pairs
+
+- MySQL database support for storing chat data
+
+- Lightweight and easy to set up
 
 
 ## How It Works
@@ -37,66 +43,8 @@ The system includes a simple web interface where users can ask questions, and th
 7.**Optional Logging** – The conversation can be saved in the database for analysis or future improvements.
 
 
-## Tech Stack
-
-**Python** – Backend logic
-
-**Flask** – Web framework
-
-**HTML, CSS, JavaScript** – Frontend UI
-
-**MySQL** – Database for chat storage
-
-**AI / NLP** – Used for matching user questions
-
-**Custom Question Files** – Extendable knowledge base
-
-
-## Installation and Setup
-1.**Clone the Repository**
-git clone https://github.com/Sanjay9923/AI-Powered-Chatbot-for-Customer-Support.git
-cd AI-Powered-Chatbot-for-Customer-Support
-
-2.**Create a Virtual Environment**
-python -m venv venv
-
-Activate it:
-
-venv\Scripts\activate
-
-3.**Install Required Libraries**
-pip install -r requirements.txt
-
-4.**Set Up the Database**
-
-Open MySQL or phpMyAdmin:
-
-CREATE DATABASE chatbot_db;
-
-Import the SQL file located in the database folder.
-
-5.**Update Database Credentials (if required)**
-
-Inside app.py, check your MySQL login settings:
-
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="yourpassword",
-    database="chatbot_db"
-)
-
-6.**Run the Application**
-python app.py
-
-7.**Open the App**
-
-Open your browser and go to:
-
-http://127.0.0.1:5000/
-
-
 ## Project Structure
+
 AI-Powered-Chatbot-for-Customer-Support/
 
 │
@@ -115,45 +63,84 @@ AI-Powered-Chatbot-for-Customer-Support/
 │   └── chatbot_db.sql  
 │
 ├── questions/             # Dataset used by the chatbot  
-│   └── data.json / .txt  
-│
-└── requirements.txt       # Python dependencies  
+ └── data.json / .txt  
 
 
-## System Architecture
+## Technologies Used
 
-User → Web Interface (HTML/CSS/JS)
-        │
-        ▼
-   Flask Backend (app.py)
-        │
-        ▼
-  Chatbot Logic / NLP
-        │
-        ▼
-  Question Files / Knowledge Base
-        │
-        ▼
-     MySQL Database
+**Python** – Backend logic
+
+**Flask** – Web framework
+
+**HTML, CSS, JavaScript** – Frontend UI
+
+**MySQL** – Database for chat storage
+
+**AI / NLP** – Used for matching user questions
+
+**Custom Question Files** – Extendable knowledge base
+
+
+## Getting Started
+
+Follow these steps to run the AI-Powered Chatbot for Customer Support on your local machine.
+
+1.**Clone or Download the Project**
+
+git clone https://github.com/Sanjay9923/AI-Powered-Chatbot-for-Customer-Support.git
+cd "AI-Powered Chatbot for Customer Support"
+
+2.**Install Required Dependencies**
+
+This project uses Flask. Install it using:
+
+pip install flask
+
+No other external libraries are required because SQLite is built into Python.
+
+3.**Start the Chatbot Server**
+
+Run the Flask application:
+
+python app.py
+
+If everything loads correctly, you will see something like:
+
+Running on http://127.0.0.1:5001
+
+4.**Open the Chatbot in Your Browser**
+
+Go to:
+
+http://127.0.0.1:5001
+
+The chatbot interface will appear, and you can start asking questions immediately.
+
+5.**Using the Chatbot**
+
+Type your query into the text box.
+
+The system checks your question against saved FAQ entries in chatbot.db.
+
+It returns the most relevant answer or a fallback message if no match is found.
 
 
 ## Future Improvements
 
-Add more advanced NLP models for better accuracy
+- Add more advanced NLP models for better accuracy
 
-Add a full admin dashboard for FAQ and analytics
+- Add a full admin dashboard for FAQ and analytics
 
-Add user login using Flask
+- Add user login using Flask
 
-Support for multiple languages
+- Support for multiple languages
 
-Integrate voice support or external chat platforms
+- Integrate voice support or external chat platforms
 
 ## Project Contributor
 
-**Sanjay.s** — Developer and Project Lead
+Sanjay.s — Developer and Project Lead
+
 Contributions are welcome. Feel free to submit pull requests or suggest improvements.
 
-## License
 
-This project is open-source and available under the MIT License.
