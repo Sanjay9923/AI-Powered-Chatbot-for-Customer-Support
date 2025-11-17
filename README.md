@@ -4,24 +4,9 @@
 
 This project is an AI-powered chatbot designed to help customers get quick answers to common questions. It uses natural language processing techniques to understand user queries and provide accurate, context-aware responses.
 The system includes a simple web interface where users can ask questions, and the chatbot replies instantly based on the knowledge stored in the question files.
-## Demo
-
-<div align="center">
-
-<h2 align="center">Glowing - eCommerce Website</h2>
-
-Glowing is a fully responsive ecommerce website, <br />
-
-<a href="https://sanjay9923.github.io/http://127.0.0.1:5001//"><strong>➥ Live Demo</strong></a>
-
-</div>
-
-<br />
 
 
 ## Screenshot
-
-<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/98d6f255-de8c-4750-9e72-5c95930db671" />
 
 
 ## Features
@@ -58,8 +43,8 @@ Glowing is a fully responsive ecommerce website, <br />
 
 ## Project Structure
 
+```bash
 AI-Powered-Chatbot-for-Customer-Support/
-
 │
 ├── app.py                 # Main Flask application  
 │
@@ -77,6 +62,7 @@ AI-Powered-Chatbot-for-Customer-Support/
 │
 ├── questions/             # Dataset used by the chatbot  
  └── data.json / .txt  
+```
 
 
 ## Technologies Used
@@ -99,34 +85,40 @@ AI-Powered-Chatbot-for-Customer-Support/
 Follow these steps to run the AI-Powered Chatbot for Customer Support on your local machine.
 
 1.**Clone or Download the Project**
-
+```bash
 git clone https://github.com/Sanjay9923/AI-Powered-Chatbot-for-Customer-Support.git
+```
+
+Move into the project folder:
+```bash
 cd "AI-Powered Chatbot for Customer Support"
+```
 
 2.**Install Required Dependencies**
 
-This project uses Flask. Install it using:
-
+This project uses Flask. Install it with:
+```bash
 pip install flask
-
+```
 No other external libraries are required because SQLite is built into Python.
 
 3.**Start the Chatbot Server**
 
 Run the Flask application:
-
+```bash
 python app.py
-
+```
 If everything loads correctly, you will see something like:
-
+```nginx
 Running on http://127.0.0.1:5001
+```
 
 4.**Open the Chatbot in Your Browser**
 
 Go to:
-
+```ccp
 http://127.0.0.1:5001
-
+```
 The chatbot interface will appear, and you can start asking questions immediately.
 
 5.**Using the Chatbot**
@@ -150,10 +142,17 @@ It returns the most relevant answer or a fallback message if no match is found.
 
 - Integrate voice support or external chat platforms
 
+
 ## Project Contributor
 
 Sanjay.s — Developer and Project Lead
 
 Contributions are welcome. Feel free to submit pull requests or suggest improvements.
+
+
+## License
+
+This project is **free to use** and does not contains any license.
+
 
 
