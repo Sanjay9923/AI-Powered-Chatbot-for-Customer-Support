@@ -4,6 +4,19 @@
 
 This project is an AI-powered chatbot designed to help customers get quick answers to common questions. It uses natural language processing techniques to understand user queries and provide accurate, context-aware responses.
 The system includes a simple web interface where users can ask questions, and the chatbot replies instantly based on the knowledge stored in the question files.
+## Demo
+
+<div align="center">
+
+<h2 align="center">Glowing - eCommerce Website</h2>
+
+Glowing is a fully responsive ecommerce website, <br />
+
+<a href="https://sanjay9923.github.io/http://127.0.0.1:5001//"><strong>➥ Live Demo</strong></a>
+
+</div>
+
+<br />
 
 
 ## Screenshot
