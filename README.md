@@ -6,7 +6,9 @@ This project is an AI-powered chatbot designed to help customers get quick answe
 The system includes a simple web interface where users can ask questions, and the chatbot replies instantly based on the knowledge stored in the question files.
 
 
-## Screenshot
+## Preview (Screenshot) 
+![Screenshot (42) (1)](https://github.com/user-attachments/assets/12fbc705-52f0-4003-b8b8-24bd13fe3a78)
+
 
 
 ## Features
