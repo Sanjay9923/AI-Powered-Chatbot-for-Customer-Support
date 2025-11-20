@@ -1,10 +1,23 @@
 import sqlite3
 
+# Connect to database (creates file if not exists)
 conn = sqlite3.connect("chatbot.db")
 cursor = conn.cursor()
 
+# Ensure the FAQ table exists, with a UNIQUE constraint on the 'question' column.
+# This prevents duplicate questions from being inserted if you run the script multiple times.
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS faq (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL UNIQUE, 
+    answer TEXT NOT NULL
+)
+""")
+conn.commit()
+
+
 faq_data = [
-    ("hello", "Hi there! How can I assist you today?"),
+    ("hello", "Hi ! How can I assist you today?"),
     ("what is your name", "I am your AI-powered chatbot."),
     ("how are you", "I’m doing great, thanks for asking! How can I help you?"),
     ("what services do you provide", "I can assist with customer support, FAQs, and general queries."),
@@ -13,7 +26,7 @@ faq_data = [
     ("where are you located", "Our headquarters is in Chennai, India."),
     ("how do I reset my password", "Click on 'Forgot Password' at login and follow the instructions."),
     ("do you store my data", "Yes, but only to improve our services and securely as per our privacy policy."),
-    ("thank you", "You're welcome! Happy to help anytime.")
+    ("thank you", "You're welcome! Happy to help anytime."), 
     ("how do i change my password", "Go to your account settings and select 'Change Password'."),
     ("why am i not receiving otp", "Please wait a moment and try resending the OTP."),
     ("how to delete my account", "Go to Privacy Settings and click Delete Account."),
@@ -146,8 +159,9 @@ faq_data = [
     ("what can you do", "I can help with orders, payments, returns, and account issues.")
 ]
 
-cursor.executemany("INSERT INTO faq (question, answer) VALUES (?, ?)", faq_data)
+# Use INSERT OR IGNORE to skip questions that already exist
+cursor.executemany("INSERT OR IGNORE INTO faq (question, answer) VALUES (?, ?)", faq_data)
 conn.commit()
 conn.close()
 
-print("✅ 10 FAQ entries inserted into chatbot.db")
+print("✅ FAQ data insertion complete. Existing entries were skipped (ignored).")
