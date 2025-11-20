@@ -4,14 +4,15 @@ import os
 
 app = Flask(__name__)
 
-# Ensure database file exists in project folder
+# Ensure database file path is correct
 DB_PATH = os.path.join(os.path.dirname(__file__), "chatbot.db")
 
-# Connect to SQLite database
+# Connect to SQLite database. check_same_thread=False is needed for Flask threads.
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
 
-# Create table if not exists
+# --- Database Setup (Ensuring both tables exist) ---
+# Create FAQ table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS faq (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,7 +20,17 @@ CREATE TABLE IF NOT EXISTS faq (
     answer TEXT NOT NULL
 )
 """)
+# Create CONVERSATIONS table for logging
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS conversations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_message TEXT,
+    bot_reply TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+""")
 conn.commit()
+# ----------------------------------------------------
 
 @app.route("/")
 def home():
@@ -28,16 +39,35 @@ def home():
 @app.route("/get", methods=["POST"])
 def get_bot_response():
     user_text = request.form["msg"]
+    bot_response = ""
+    
+    # Clean and standardize user input for better matching
+    user_input_normalized = user_text.strip().lower()
 
-    # Search for a matching question
-    cursor.execute("SELECT answer FROM faq WHERE question LIKE ?", ('%' + user_text + '%',))
+    # Search for a matching question using the LIKE operator
+    cursor.execute("SELECT answer FROM faq WHERE question LIKE ?", ('%' + user_input_normalized + '%',))
     result = cursor.fetchone()
 
     if result:
-        return result[0]
+        # If a match is found, use the stored answer
+        bot_response = result[0]
     else:
-        return "Sorry, I don't understand. We will get back to you."
+        # Fallback response if no match is found
+        bot_response = "Sorry, I don't understand. We will get back to you."
+
+    # --- LOGGING CONVERSATION ---
+    try:
+        cursor.execute(
+            "INSERT INTO conversations (user_message, bot_reply) VALUES (?, ?)",
+            (user_text, bot_response)
+        )
+        conn.commit()
+    except Exception as e:
+        print(f"Error logging conversation: {e}")
+    # -----------------------------
+
+    return bot_response
 
 if __name__ == "__main__":
-    print("🚀 Starting Chatbot App with SQLite...")
+    print(" Starting Chatbot App with SQLite...")
     app.run(debug=True, port=5001)
