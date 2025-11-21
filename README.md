@@ -10,7 +10,6 @@ The system includes a simple web interface where users can ask questions, and th
 ![Screenshot (42) (1)](https://github.com/user-attachments/assets/12fbc705-52f0-4003-b8b8-24bd13fe3a78)
 
 
-
 ## Features
 
 - Real-time customer support chatbot
@@ -125,11 +124,11 @@ The chatbot interface will appear, and you can start asking questions immediatel
 
 5.**Using the Chatbot**
 
-Type your query into the text box.
+- Type your query into the text box.
 
-The system checks your question against saved FAQ entries in chatbot.db.
+- The system checks your question against saved FAQ entries in chatbot.db.
 
-It returns the most relevant answer or a fallback message if no match is found.
+- It returns the most relevant answer or a fallback message if no match is found.
 
 
 ## Future Improvements
@@ -147,7 +146,7 @@ It returns the most relevant answer or a fallback message if no match is found.
 
 ## Project Contributor
 
-Sanjay.s — Developer and Project Lead
+Sanjay s — Developer and Project Lead
 
 Contributions are welcome. Feel free to submit pull requests or suggest improvements.
 
